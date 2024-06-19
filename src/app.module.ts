@@ -8,6 +8,7 @@ import { DataTransformService } from './data-transform.service';
 import { DataService } from './data.service';
 import { DataResolver } from './graphql.resolver';
 import { Data, DataSchema } from './schemas/data.schema';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { Data, DataSchema } from './schemas/data.schema';
     DataTransformService,
     DataService,
     DataResolver,
+    AppService,
   ],
 })
 export class AppModule {}
