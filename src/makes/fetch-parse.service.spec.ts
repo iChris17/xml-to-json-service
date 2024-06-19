@@ -88,10 +88,22 @@ describe('fetch-parse.service', () => {
     expect(axios.get).toHaveBeenNthCalledWith(
       1,
       'https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=XML',
+      {
+        headers: {
+          Accept:
+            'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        },
+      },
     );
     expect(axios.get).toHaveBeenNthCalledWith(
       2,
       'https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMakeId/1?format=XML',
+      {
+        headers: {
+          Accept:
+            'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        },
+      },
     );
 
     expect(makeModel.insertMany).toHaveBeenCalledTimes(1);
