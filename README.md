@@ -5,8 +5,8 @@ This application fetches vehicle makes and their corresponding types from an ext
 ## Installation
 
 ```bash
-$ git clone <repository-url>
-$ cd vehicle-service
+$ git clone https://github.com/iChris17/xml-to-json-service.git
+$ cd xml-to-json-service
 ```
 
 ```bash
