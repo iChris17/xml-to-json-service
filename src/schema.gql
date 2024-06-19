@@ -2,19 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Make {
-  MakeId: String!
-  MakeName: String!
+type VehicleTypeDto {
+  vehicleTypeId: Int!
+  vehicleTypeName: String!
 }
 
-type VehicleType {
-  MakeId: String!
-  MakeName: String!
-  VehicleTypeId: String!
-  VehicleTypeName: String!
+type MakeDto {
+  makeId: Int!
+  makeName: String!
+  vehicleTypes: [VehicleTypeDto!]!
 }
 
 type Query {
-  makes: [Make!]!
-  vehicleTypes: [VehicleType!]!
+  makes: [MakeDto!]!
 }

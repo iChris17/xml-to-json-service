@@ -1,14 +1,26 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { Make, TransformedData, VehicleType } from '../interfaces';
 
 @Schema()
-export class Data extends Document implements TransformedData {
-  @Prop({ type: Array, required: true })
-  makes: Make[];
+export class VehicleType extends Document {
+  @Prop()
+  vehicleTypeId: number;
 
-  @Prop({ type: Array, required: true })
+  @Prop()
+  vehicleTypeName: string;
+}
+
+@Schema()
+export class Make extends Document {
+  @Prop()
+  makeId: number;
+
+  @Prop()
+  makeName: string;
+
+  @Prop()
   vehicleTypes: VehicleType[];
 }
 
-export const DataSchema = SchemaFactory.createForClass(Data);
+export const VehicleTypeSchema = SchemaFactory.createForClass(VehicleType);
+export const MakeSchema = SchemaFactory.createForClass(Make);
