@@ -1,6 +1,6 @@
 import { Resolver, Query } from '@nestjs/graphql';
 import { VehiclesService } from './fetch-parse.service';
-import { MakeDto } from './make.dto';
+import { MakeDto } from '../dto/make.dto';
 
 @Resolver(() => MakeDto)
 export class VehiclesResolver {

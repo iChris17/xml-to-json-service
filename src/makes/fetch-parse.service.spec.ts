@@ -3,7 +3,7 @@ import axios from 'axios';
 import { VehiclesService } from './fetch-parse.service';
 import { getModelToken } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Make } from './schemas/data.schema';
+import { Make } from '../schemas/data.schema';
 import { parseStringPromise } from 'xml2js';
 
 describe('fetch-parse.service', () => {

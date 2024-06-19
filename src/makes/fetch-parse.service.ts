@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import axios from 'axios';
 import { parseStringPromise } from 'xml2js';
-import { Make } from './schemas/data.schema';
-import { MakeDto } from './make.dto';
+import { Make } from '../schemas/data.schema';
+import { MakeDto } from '../dto/make.dto';
 
 @Injectable()
 export class VehiclesService {
@@ -14,6 +14,12 @@ export class VehiclesService {
     try {
       const makesResponse = await axios.get(
         'https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=XML',
+        {
+          headers: {
+            Accept:
+              'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          },
+        },
       );
 
       const makesJson = await parseStringPromise(makesResponse.data);
@@ -37,6 +43,12 @@ export class VehiclesService {
 
           const vehicleTypesResponse = await axios.get(
             `https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMakeId/${make.Make_ID[0]}?format=XML`,
+            {
+              headers: {
+                Accept:
+                  'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+              },
+            },
           );
 
           const vehicleTypesJson = await parseStringPromise(
