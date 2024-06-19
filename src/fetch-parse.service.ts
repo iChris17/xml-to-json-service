@@ -48,14 +48,14 @@ export class VehiclesService {
           const vehicleTypes = vehicleTypesResults?.VehicleTypesForMakeIds?.map(
             (type) => {
               return {
-                vehicleTypeId: type.VehicleTypeId[0],
+                vehicleTypeId: Number(type.VehicleTypeId[0]),
                 vehicleTypeName: type.VehicleTypeName[0],
               };
             },
           );
 
           return {
-            makeId: make.Make_ID[0],
+            makeId: Number(make.Make_ID[0]),
             makeName: make.Make_Name[0],
             vehicleTypes,
           };
