@@ -1,0 +1,23 @@
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongo
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/xmlToJsonService
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run start:dev
+
+  mongo:
+    image: mongo:7.0
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

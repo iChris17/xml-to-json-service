@@ -11,7 +11,7 @@ import { AppController } from './app.controller';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/xmlToJsonService'),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
     MongooseModule.forFeature([{ name: Make.name, schema: MakeSchema }]),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

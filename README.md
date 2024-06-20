@@ -2,29 +2,14 @@
 
 This application fetches vehicle makes and their corresponding types from an external API, transforms the data into JSON format, stores it in a MongoDB database, and exposes it via a GraphQL endpoint.
 
-## Installation
-
-```bash
-$ git clone https://github.com/iChris17/xml-to-json-service.git
-$ cd xml-to-json-service
-```
-
-```bash
-$ npm install
-```
-
-```bash
-$ npm run start:dev
-```
-
 ## Using Docker
 
 ```bash
-$ docker build -t xml-to-json-service .
+$ docker-compose build
 ```
 
 ```bash
-$ docker run -p 3000:3000 xml-to-json-service
+$ docker-compose up
 ```
 
 ## Access GraphQL Playground
